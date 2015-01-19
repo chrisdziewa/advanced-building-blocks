@@ -98,11 +98,19 @@ module Enumerable
 		 	end
 		array
 		else
-			"#<Enumerator: #{self}:my_map_with_proc>"
+			"#<Enumerator: #{self}:my_map>"
 		end	
 	end
+end ## of enumerable module
 
-	##Original my_map:
+
+#Test for inject method
+def multiply_els(list)
+	list.my_inject(1) {|sum, num| sum * num}
+end
+
+
+##Original my_map method (Like core method):
 	# def my_map
 	# 	array = self.dup
 	# 	if block_given?
@@ -114,4 +122,3 @@ module Enumerable
 	# 		"#<Enumerator: #{self}:my_map>"
 	# 	end	
 	# end
-end
