@@ -1,5 +1,5 @@
 module Enumerable
-	def my_each 
+	def my_each
 		i = self.length
 		n = 0
 		if block_given?
@@ -13,7 +13,7 @@ module Enumerable
 		end
 	end
 
-	def my_each_with_index 
+	def my_each_with_index
 		i = self.length
 		n = 0
 		if block_given?
@@ -36,35 +36,35 @@ module Enumerable
 			selection
 		else
 			"#<Enumerator: #{self}:my_select>"
-		end	
+		end
 	end
 
-	def my_all? 
+	def my_all?
 		if block_given?
 			self.my_each do |item|
-				return false unless yield(item)  
+				return false unless yield(item)
 			end
-		end	
+		end
 		true
 	end
 
-	def my_any? 
+	def my_any?
 		if block_given?
 			self.my_each do |item|
-				return true if yield(item)  
+				return true if yield(item)
 			end
 			return false
-		end	
+		end
 		true
 	end
 
-	def my_none? 
+	def my_none?
 		if block_given?
 			self.my_each do |item|
-				return false if yield(item)  
+				return false if yield(item)
 			end
 			return true
-		end	
+ 		end
 		false
 	end
 
@@ -72,7 +72,7 @@ module Enumerable
 		self.length
 	end
 
-	def my_inject(sum=0) 
+	def my_inject(sum=0)
 		if block_given?
 			self.my_each do |item|
 				sum = yield(sum, item)
@@ -80,10 +80,10 @@ module Enumerable
 			sum
 		else
 			warn "LocalJumpError: no block given"
-		end	
+		end
 	end
 
-    ##Accepts procs and blocks 
+    ##Accepts procs and blocks
     ##but only runs blocks when proc provided
 	def my_map(param=0)
 		array = self.dup
@@ -99,7 +99,7 @@ module Enumerable
 		array
 		else
 			"#<Enumerator: #{self}:my_map>"
-		end	
+		end
 	end
 end ## of enumerable module
 
@@ -120,5 +120,5 @@ end
 	# 		array
 	# 	else
 	# 		"#<Enumerator: #{self}:my_map>"
-	# 	end	
+	# 	end
 	# end
